@@ -14,8 +14,10 @@ const appRouter = createBrowserRouter([{
   errorElement:<ErrorPage></ErrorPage>,
   children:[{
     path:"/",
-
-  }]
+  },
+  {path:"/",
+}
+]
 }])
 
 export default App;
