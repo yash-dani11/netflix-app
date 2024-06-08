@@ -1,23 +1,9 @@
-import './App.css';
-import { createBrowserRouter } from 'react-router-dom';
-import ErrorPage from './ErrorPage';
+import Body from "./components/Body";
 function App() {
   return (
-    <div>
-      
-    </div>
+     <Body></Body>
+    
   );
 }
-
-const appRouter = createBrowserRouter([{
-  path:"/",
-  errorElement:<ErrorPage></ErrorPage>,
-  children:[{
-    path:"/",
-  },
-  {path:"/",
-}
-]
-}])
 
 export default App;
