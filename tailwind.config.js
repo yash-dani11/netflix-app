@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage:{
-        'movie-poster':"url(assets/cover.jpeg)"
-        
+        'movie-poster':"url(assets/cover.jpeg)",
+        'error-poster':"url(assets/errorbg.png)"
       }
     },
   },
