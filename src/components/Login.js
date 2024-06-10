@@ -1,11 +1,12 @@
 import { useState } from "react";
-import useInput from "../utils/useInput";
+import useInput from "../hooks/useInput";
+import useValidate from "../hooks/useValidate";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
 import {auth} from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import useValidate from "../utils/useValidate";
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
