@@ -6,7 +6,14 @@ export const TMDB_API_OPTIONS = {
     }
 }
 
-export const NOW_PLAYING_ENDPOINT = "https://api.themoviedb.org/3/movie/now_playing?language=en-US";
-export const EMBED_VIDEO_ENPOINT = "https://www.youtube.com/embed/";
+export const MOVIES_ENDPOINT = "https://api.themoviedb.org/3/movie/";
+export const EMBED_VIDEO_ENDPOINT = "https://www.youtube.com/embed/";
 
 export const MOVIE_VIDEO_ENDPOINT = "https://api.themoviedb.org/3/movie/";
+
+export const MOVIE_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/";
+
+export const nowPlaying = "now_playing";
+export const popular = "popular";
+export const topRated = "top_rated";
+export const upcoming = "upcoming";

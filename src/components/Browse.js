@@ -1,10 +1,15 @@
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
+import useMovies from '../hooks/useMovies';
+import { nowPlaying, popular, topRated, upcoming } from '../utils/constants';
 import ListContainer from './ListContainer';
 import MainMovieContainer from './MainMovieContainer';
 const Browse = () => {
-  useNowPlayingMovies();
+  useMovies(nowPlaying);
+  useMovies(topRated);
+  useMovies(popular);
+  useMovies(upcoming);
+
   return (
-    <div className='bg-black h-screen w-screen'>
+    <div className='bg-black text-white'>
       <MainMovieContainer></MainMovieContainer>
       <ListContainer></ListContainer>
     </div>
