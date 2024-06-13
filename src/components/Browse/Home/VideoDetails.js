@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const VideoDetails = ({title,desc,id,category}) => {
   return (
-    <div className='h-[100%] text-white relative bg-opacity-65 z-10 text-center md:text-left'>
+    <div className='h-full text-white relative bg-opacity-65 z-10 text-center md:text-left'>
         <div className='pt-36 px-12 absolute top-56 md:top-28'>
         <h1 className='text-2xl md:text-4xl tab:text-6xl font-bold md:w-3/4'>{title}</h1>
         <div className='md:w-1/2 my-8 line-clamp-2'>{desc}</div>

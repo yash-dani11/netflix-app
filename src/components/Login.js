@@ -67,16 +67,16 @@ const Login = () => {
         
   }
   return (
-    <div className="w-screen bg-cover h-screen bg-center bg-movie-poster ">
-      <div className="flex justify-center items-center h-[100%] p-10">
-        <form className="w-[100%] h-5/6 text-white bg-black flex justify-center items-center bg-opacity-80 rounded-lg sm:w-4/5 md:w-1/3">
+    <div className="w-screen bg-cover h-screen bg-center bg-movie-poster">
+      <div className="flex justify-center sm:items-center h-full p-10 w-full bg-opacity-80 bg-black overflow-hidden">
+        <form className="w-full h-full sm:h-5/6 text-white flex justify-center items-center bg-opacity-80 rounded-lg sm:w-4/5 md:w-1/3 overflow-visible mt-12 sm:m-auto">
           <div className="w-3/4 ">
             <h1 className="font-bold text-3xl mx-2 mt-2 mb-4">{formTitle}</h1>
             {!isSignInForm && (
               <input
                 type="text"
                 placeholder="Name"
-                className={`p-4 mt-2 mb-4 mx-2 rounded-lg w-[100%] bg-gray-700 focus:outline-black ${formData["name"].error?inputErrorClass:""}`}
+                className={`p-4 mt-2 mb-4 mx-2 rounded-lg w-full bg-gray-700 focus:outline-black ${formData["name"].error?inputErrorClass:""}`}
                 onChange = {(e)=>{dispatchForm({type:"name",value:e.target.value})}}
                 onBlur = {()=>{dispatchValidate({type:"name",value:name})}}
                 value={name}
@@ -86,7 +86,7 @@ const Login = () => {
             <input
               type="text"
               placeholder="Email"
-              className={`p-4 mt-2 mb-4 mx-2 rounded-lg w-[100%] bg-gray-700 focus:outline-black ${formData["email"].error?inputErrorClass:""}`}
+              className={`p-4 mt-2 mb-4 mx-2 rounded-lg w-full bg-gray-700 focus:outline-black ${formData["email"].error?inputErrorClass:""}`}
               onChange = {(e)=>{dispatchForm({type:"email",value:e.target.value})}}
               onBlur = {()=>{dispatchValidate({type:"email",value:email})}}
               value={ email}
@@ -95,7 +95,7 @@ const Login = () => {
             <input
               type="password"
               placeholder="Password"
-              className={`p-4 my-4 mx-2 rounded-lg w-[100%] bg-gray-700 focus:outline-black ${formData["password"].error?inputErrorClass:""}`}
+              className={`p-4 my-4 mx-2 rounded-lg w-full bg-gray-700 focus:outline-black ${formData["password"].error?inputErrorClass:""}`}
               onChange = {(e)=>{dispatchForm({type:"password",value:e.target.value})}}
               onBlur = {()=>{dispatchValidate({type:"password",value:password,confirmPassword:confirmPassword})}}
               value={password}
@@ -106,7 +106,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Confirm password"
-                className="p-4 my-4 mx-2 rounded-lg w-[100%] bg-gray-700 focus:outline-black"
+                className="p-4 my-4 mx-2 rounded-lg w-full bg-gray-700 focus:outline-black"
                 onChange = {(e)=>{dispatchForm({type:"confirmPassword",value:e.target.value})}}
                 onBlur = {()=>{dispatchValidate({type:"confirmPassword",value:confirmPassword,password:password})}}
                 value={confirmPassword}
@@ -114,7 +114,7 @@ const Login = () => {
              
             )}
              {formError.confirmPassword && <div className="text-red-600 text-xs px-4">The passwords do not match.</div>}
-            <button className={`my-4 mx-2 p-4 bg-red-600 rounded-lg w-[100%] text-center`} onClick={handleLogin}>
+            <button className={`my-4 mx-2 p-4 bg-red-600 rounded-lg w-full text-center`} onClick={handleLogin}>
               {isLoading?<img src={LOADER} className="h-4 w-4 text mx-auto"></img>:formTitle}
               
             </button>
