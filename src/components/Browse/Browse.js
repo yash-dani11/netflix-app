@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import useMovies from '../hooks/useMovies';
-import { nowPlaying, popular, topRated, upcoming } from '../utils/constants';
-import ListContainer from './ListContainer';
-import MainMovieContainer from './MainMovieContainer';
-import Search from './Search';
+import useMovies from '../../hooks/useMovies';
+import { nowPlaying, popular, topRated, upcoming } from '../../utils/constants';
+import ListContainer from './Home/ListContainer';
+import MainMovieContainer from './Home/MainMovieContainer';
+import Search from './Search/Search';
 const Browse = () => {
   useMovies(nowPlaying);
   useMovies(topRated);

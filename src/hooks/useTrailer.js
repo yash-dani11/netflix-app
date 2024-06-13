@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MOVIE_VIDEO_ENDPOINT, TMDB_API_OPTIONS } from "../utils/constants";
 import { useDispatch,useSelector } from "react-redux";
-import { addTrailerVideo } from "../utils/movieSlice";
+import { addTrailerVideo } from "../redux/movieSlice";
 
 const useTrailer = (movieId,category) => {
   const dispatch = useDispatch();

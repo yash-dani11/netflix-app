@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieCarousel from './MovieCarousel'
+import MovieCarousel from '../../MovieCarousel/MovieCarousel'
 import { useSelector } from 'react-redux'
 
 const ListContainer = () => {
@@ -7,8 +7,8 @@ const ListContainer = () => {
   const allCategories = Object.keys(movies);
   const allMovies = allCategories.map(category=><MovieCarousel movieList = {movies[category]} title={category} key={category}></MovieCarousel>)
   return (
-    <div className='bg-transparent relative z-20'>
-      <div className='-mt-52'>{allMovies}</div>
+    <div className='pt-72 bg-black md:bg-transparent md:relative md:z-20 md:m-auto md:pt-0'>
+      <div className='tab:-mt-52'>{allMovies}</div>
     </div>
   )
 }

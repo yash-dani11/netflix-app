@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { getRecommendations } from '../utils/geminiConfig';
+import { getRecommendations } from '../../../utils/geminiConfig';
 import { useDispatch } from 'react-redux';
-import { SEARCH_MOVIE_ENDPOINT, TMDB_API_OPTIONS } from '../utils/constants';
-import { addSearchResults } from '../utils/movieSlice';
-import { toggleLoading } from '../utils/searchSlice';
+import { SEARCH_MOVIE_ENDPOINT, TMDB_API_OPTIONS } from '../../../utils/constants';
+import { addSearchResults } from '../../../redux/movieSlice';
+import { toggleLoading } from '../../../redux/searchSlice';
 
 
 const SearchBar = () => {
@@ -25,6 +25,7 @@ const SearchBar = () => {
                         result.push(json.results[0]);
                     }
                     if(index === responses.length-1){
+                        console.log(result);
                         dispatch(addSearchResults(result));
                         dispatch(toggleLoading());
                     }
@@ -44,15 +45,15 @@ const SearchBar = () => {
     
   return (
     <div className='mx-4 h-3/5 py-52 flex justify-center items-center'>
-        <form className='w-3/5 rounded-md bg-black' onSubmit={handleSearch}>
+        <form className='w-full md:w-3/5 rounded-md bg-black' onSubmit={handleSearch}>
         <input
                 type="text"
                 placeholder="What would you like to watch today?"
-                className="m-2 py-2 rounded-md h-12 px-4 w-3/4 bg-gray-700 focus:outline-black text-xl"
+                className="m-2 py-2 rounded-md h-8 tab:h-12 px-4 w-3/4 bg-gray-700 focus:outline-black text-sm tab:text-xl"
                 value={searchString}
                 onChange={handleInputChange}
         ></input>
-        <button className="m-2 py-2 rounded-md h-12 text-xl w-1/5 bg-red-600 px-4" onClick={handleSearch}>Search</button>
+        <button className="m-0 px-2 tab:m-2 py-2 rounded-md h-8 tab:h-12 w-1/10 text-sm tab:text-xl tab:w-1/6 bg-red-600 tab:px-4" onClick={handleSearch}>Search</button>
         </form>
     </div>
     

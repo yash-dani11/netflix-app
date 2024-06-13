@@ -2,7 +2,7 @@ import React from 'react'
 import VideoBackground from './VideoBackground'
 import VideoDetails from './VideoDetails'
 import { useSelector } from 'react-redux'
-import { nowPlaying } from '../utils/constants'
+import { nowPlaying } from '../../../utils/constants'
 const MainMovieContainer = () => {
   const nowPlayingMovies = useSelector(store=>store.movies?.movieList[nowPlaying]);
   if(!nowPlayingMovies){

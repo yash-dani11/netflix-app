@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import useTrailer from '../hooks/useTrailer';
 import { useDispatch, useSelector } from 'react-redux';
 import { EMBED_VIDEO_ENDPOINT } from '../utils/constants';
-import { hideHeader, showHeader } from '../utils/headerSlice';
+import { hideHeader, showHeader } from '../redux/headerSlice';
 const Player = () => {
   const movieId = useParams("id")?.id;
   const category = useParams("category")?.category;
@@ -15,7 +15,7 @@ const Player = () => {
   useEffect(()=>{
     dispatch(hideHeader());
     return ()=> dispatch(showHeader());
-  })
+  },[])
 
 
   const handleFullScreen = ()=>{

@@ -1,9 +1,9 @@
 import { Provider } from "react-redux";
-import store from "./utils/store";
+import store from "./redux/store";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Login from "./components/Login";
-import Browse from "./components/Browse";
+import Browse from "./components/Browse/Browse";
 import Body from "./components/Body";
 import Player from "./components/Player";
 const appRouter = createBrowserRouter([

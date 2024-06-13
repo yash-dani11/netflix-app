@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage:{
         'movie-poster':"url(assets/cover.jpeg)",
         'error-poster':"url(assets/errorbg.png)"
+      },
+      screens: {
+        'tab': '900px',
       }
     },
   },
