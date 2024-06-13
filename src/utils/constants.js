@@ -13,6 +13,8 @@ export const MOVIE_VIDEO_ENDPOINT = "https://api.themoviedb.org/3/movie/";
 
 export const MOVIE_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/";
 
+export const SEARCH_MOVIE_ENDPOINT = "https://api.themoviedb.org/3/search/movie";
+
 export const nowPlaying = "now_playing";
 export const popular = "popular";
 export const topRated = "top_rated";

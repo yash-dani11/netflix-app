@@ -8,11 +8,12 @@ const MainMovieContainer = () => {
   if(!nowPlayingMovies){
     return;
   }
-  const mainMovie = nowPlayingMovies[nowPlayingMovies?.length-1];
+  let nowPlayingKeys = Object.keys(nowPlayingMovies);
+  const mainMovie = nowPlayingMovies[nowPlayingKeys[0]];
   return (
     <div>
         {mainMovie && <>
-        <VideoDetails title={mainMovie?.original_title} desc={mainMovie?.overview}></VideoDetails><VideoBackground movieId = {mainMovie?.id}></VideoBackground></>}
+        <VideoDetails title={mainMovie?.original_title} desc={mainMovie?.overview} category={nowPlaying} id={mainMovie.id}></VideoDetails><VideoBackground movieId = {mainMovie?.id}></VideoBackground></>}
     </div>
   )
 }

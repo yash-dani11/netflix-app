@@ -5,6 +5,7 @@ import ErrorPage from "./components/ErrorPage";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
 import Body from "./components/Body";
+import Player from "./components/Player";
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -16,6 +17,10 @@ const appRouter = createBrowserRouter([
         path: "/browse",
         element: <Browse></Browse>,
       },
+      {
+        path:"/play/:category/:id",
+        element:<Player></Player>
+      }
     ],
   },
 ]);

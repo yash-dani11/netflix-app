@@ -6,6 +6,7 @@ import {auth} from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import LOADER from "../assets/loader.gif";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,12 +17,14 @@ const Login = () => {
   const {formError,dispatchValidate,formHasErrors} = useValidate();
   const inputErrorClass = "border border-red-600";
   const formTitle = isSignInForm ? "Sign In" : "Sign Up";
+  const [isLoading,setIsLoading] = useState(false);
   const {email,name,password,confirmPassword} = formData;
   const toggleSignIn = () => {
     setIsSignInForm((prev) => !prev);
   };
   const handleLogin = async (event)=>{
     event.preventDefault();
+    setIsLoading(true);
     if(formHasErrors(formData,isSignInForm)){
       return;
     }
@@ -31,6 +34,7 @@ const Login = () => {
           navigate("/browse");
           setLoginError("");
        }catch(error){
+          setIsLoading(false);
           if(error.code === "auth/invalid-credential"){
             setLoginError("Invalid Email/ Password");
           }
@@ -49,6 +53,7 @@ const Login = () => {
         setLoginError("");
 
       } catch (error) {
+          setIsLoading(false);
           if(error.code === "auth/email-already-in-use"){
             console.log(error.code);
             setLoginError("Email is already in use");
@@ -57,6 +62,7 @@ const Login = () => {
             setLoginError("Unable to Sign Up");
           }
       }
+      
     }
         
   }
@@ -108,8 +114,9 @@ const Login = () => {
              
             )}
              {formError.confirmPassword && <div className="text-red-600 text-xs px-4">The passwords do not match.</div>}
-            <button className={`my-4 mx-2 p-4 bg-red-600 rounded-lg w-[100%]`} onClick={handleLogin}>
-              {formTitle}
+            <button className={`my-4 mx-2 p-4 bg-red-600 rounded-lg w-[100%] text-center`} onClick={handleLogin}>
+              {isLoading?<img src={LOADER} className="h-4 w-4 text mx-auto"></img>:formTitle}
+              
             </button>
             {loginError && <div className="text-red-600 text-sm px-4">{loginError}</div>}
             <p className="my-4 p-4">

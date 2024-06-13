@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { addMovies as addMovies } from '../utils/movieSlice';
+import { addMovies } from '../utils/movieSlice';
 import { MOVIES_ENDPOINT,TMDB_API_OPTIONS } from '../utils/constants';
 const useMovies = (category) => {
     const dispatch = useDispatch();

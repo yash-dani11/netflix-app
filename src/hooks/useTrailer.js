@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { MOVIE_VIDEO_ENDPOINT, TMDB_API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/movieSlice";
 
-const useTrailer = (movieId) => {
+const useTrailer = (movieId,category) => {
   const dispatch = useDispatch();
+  const youtubeId = useSelector(store =>store.movies?.trailerList[category]?.[movieId]);
   useEffect(() => {
     const fetchMovieTrailer = async () => {
       try {
@@ -17,14 +18,19 @@ const useTrailer = (movieId) => {
         }
         const data = await respone.json();
         const trailerInfo = data?.results.find(
-          (el) => el.name === "Official Trailer"
+          (el) => {
+            return el.type === "Trailer";
+          }
         );
-        dispatch(addTrailerVideo(trailerInfo.key));
+        
+        dispatch(addTrailerVideo({value:trailerInfo?.key,category,movieId}));
       } catch (error) {
         console.log(error);
       }
     };
-    fetchMovieTrailer();
+    if(!youtubeId){
+      fetchMovieTrailer();
+    }
   }, []);
   return;
 };
