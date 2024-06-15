@@ -1,11 +1,21 @@
 import { useDispatch } from "react-redux"
 import { MOVIE_IMAGE_CDN_URL } from "../../utils/constants"
 import { viewModal } from "../../redux/modalSlice";
+import { useNavigate } from "react-router-dom";
 
-const MovieCard = ({details,category}) => {
+const MovieCard = ({details,category,playable}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  if(!details.poster_path){
+    return
+  }
   const openModal = ()=>{
-    dispatch(viewModal({details,category}));
+    if(playable){
+      navigate(`/play/${category}/${details?.id}`)
+    }else{
+      dispatch(viewModal({details,category}));
+    }
+    
   }
   return (
     

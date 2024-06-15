@@ -3,9 +3,11 @@ import store from "./redux/store";
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Login from "./components/Login";
-import Browse from "./components/Browse/Browse";
 import Body from "./components/Body";
-import Player from "./components/Player";
+import { lazy,Suspense } from "react";
+import PageLoader from "./components/PageLoader";
+const Browse = lazy(()=>import("./components/Browse/Browse"));
+const Player = lazy(()=>import("./components/Player"));
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -15,11 +17,11 @@ const appRouter = createBrowserRouter([
       { path: "/", element: <Login></Login> },
       {
         path: "/browse",
-        element: <Browse></Browse>,
+        element: <Suspense fallback={<PageLoader></PageLoader>}><Browse></Browse></Suspense>,
       },
       {
         path:"/play/:category/:id",
-        element:<Player></Player>
+        element:<Suspense fallback={<PageLoader></PageLoader>}><Player></Player></Suspense>
       }
     ],
   },

@@ -1,10 +1,12 @@
 import React from 'react'
-import { EMBED_VIDEO_ENDPOINT } from '../../utils/constants'
+import { EMBED_VIDEO_ENDPOINT } from '../../../utils/constants'
 import { Link } from 'react-router-dom';
-import useTrailer from '../../hooks/useTrailer';
+import useTrailer from '../../../hooks/useTrailer';
 import { useDispatch, useSelector } from 'react-redux';
-import useCast from '../../hooks/useCast';
-import { closeModal } from '../../redux/modalSlice';
+import useCast from '../../../hooks/useCast';
+import { closeModal } from '../../../redux/modalSlice';
+import useSuggestions from '../../../hooks/useSuggestions';
+import Similar from './Similar';
 const Modal = () => {
   const category = useSelector(store=>store?.modal?.category);
   const details = useSelector(store=>store?.modal.details);
@@ -12,6 +14,7 @@ const Modal = () => {
   const {id} = details;
   useTrailer(id,category);
   useCast(id,category);
+  useSuggestions(id);
   const youtubeId = useSelector(state=>state.movies?.trailerList?.[category]?.[id])
   const cast = useSelector(state=>state.movies?.castList?.[id]);
   
@@ -36,9 +39,10 @@ const Modal = () => {
       <div className='px-12'>
       <h1 className='absolute text-2xl md:text-4xl tab:text-5xl font-bold md:w-3/4 -top-24 sm:static'>{details?.original_title}</h1>
       <div className='absolute -top-20 sm:static mt-4 sm:mt-auto'><Link to={`/play/${category}/${details?.id}`}><button className='bg-white text-black w-20 px-2 md:px-4 py-2 my-4 font-bold rounded-md md:w-32 mr-8 mb-4 hover:bg-opacity-80'> ▶️ Play</button></Link></div>
-      <div className='flex flex-col sm:flex-row justify-between mt-28 sm:mt-12 overflow-scroll h-1/2'><div className='text-left w-full sm:w-3/5'>{details?.overview} </div><div className='text-left mt-4 sm:mt-0 sm:text-right sm:w-1/3'><span className='font-bold'>Cast:{" "}</span>{cast}</div></div>
+      <div className='flex flex-col sm:flex-row justify-between mt-28 sm:mt-24 overflow-scroll h-1/2'><div className='text-left w-full sm:w-3/5'>{details?.overview} </div><div className='text-left mt-4 sm:mt-0 sm:text-right sm:w-1/3'><span className='font-bold'>Cast:{" "}</span>{cast}</div></div>
   </div>
   </div>
+  <Similar id={id}></Similar>
   </div>
     </div>
   </div></>

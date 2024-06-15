@@ -4,7 +4,7 @@ import { nowPlaying, popular, topRated, upcoming } from '../../utils/constants';
 import ListContainer from './Home/ListContainer';
 import MainMovieContainer from './Home/MainMovieContainer';
 import Search from './Search/Search';
-import Modal from '../MovieCarousel/Modal';
+import Modal from './Details/Modal';
 const Browse = () => {
   useMovies(nowPlaying);
   useMovies(topRated);

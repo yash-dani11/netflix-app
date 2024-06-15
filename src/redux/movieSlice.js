@@ -29,7 +29,8 @@ const movieSlice = createSlice({
         },
         addMovieCast:(state,action)=>{
             state["castList"][action.payload.movieId] = action.payload.value;
-        }
+        },
+        
     }
 })
 

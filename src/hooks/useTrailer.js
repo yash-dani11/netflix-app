@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { MOVIES_ENDPOINT, TMDB_API_OPTIONS } from "../utils/constants";
+import { MOVIES_ENDPOINT, TMDB_API_OPTIONS,VIDEO_API } from "../utils/constants";
 import { useDispatch,useSelector } from "react-redux";
 import { addTrailerVideo } from "../redux/movieSlice";
 
@@ -10,7 +10,7 @@ const useTrailer = (movieId,category) => {
     const fetchMovieTrailer = async () => {
       try {
         const respone = await fetch(
-          `${MOVIES_ENDPOINT}${movieId}/videos`,
+          `${MOVIES_ENDPOINT}${movieId}${VIDEO_API}`,
           TMDB_API_OPTIONS
         );
         if (!respone.ok) {
