@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const VideoBackground = ({ movieId }) => {
   useTrailer(movieId,nowPlaying);
   const youtubeId = useSelector(store =>store.movies?.trailerList[nowPlaying]?.[movieId]);
+  
   return (
     <div className="w-screen overflow-hidden">
       <div className="relative pb-[56.25%] pt-24 sm:pt-6 w-[300%] left-[-100%]">

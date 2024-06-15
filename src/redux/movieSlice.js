@@ -5,7 +5,8 @@ const movieSlice = createSlice({
     initialState:{
         movieList:{},
         trailerList:{},
-        searchList:{}
+        searchList:{},
+        castList:{},
     },
     reducers:{
         addMovies:(state,action)=>{
@@ -20,15 +21,18 @@ const movieSlice = createSlice({
             state["trailerList"][action.payload.category][action.payload.movieId] = action.payload.value;
         },
         addSearchResults:(state,action)=>{
-            let movieData = {}
+            let movieData = {};
             action.payload.forEach(element => {
                 movieData[element.id] = element;
             });
             state["searchList"] = movieData;
+        },
+        addMovieCast:(state,action)=>{
+            state["castList"][action.payload.movieId] = action.payload.value;
         }
     }
 })
 
-export const { addMovies,addTrailerVideo,addSearchResults} = movieSlice.actions;
+export const { addMovies,addTrailerVideo,addSearchResults,addMovieCast} = movieSlice.actions;
 
 export default movieSlice.reducer;

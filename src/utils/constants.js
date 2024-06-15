@@ -7,9 +7,8 @@ export const TMDB_API_OPTIONS = {
 }
 
 export const MOVIES_ENDPOINT = "https://api.themoviedb.org/3/movie/";
-export const EMBED_VIDEO_ENDPOINT = "https://www.youtube.com/embed/";
 
-export const MOVIE_VIDEO_ENDPOINT = "https://api.themoviedb.org/3/movie/";
+export const EMBED_VIDEO_ENDPOINT = "https://www.youtube.com/embed/";
 
 export const MOVIE_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/";
 
