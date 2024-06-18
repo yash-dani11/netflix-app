@@ -23,7 +23,7 @@ const useSuggestions = (movieId) => {
         if(!suggestions){
             fetchSuggestions();    
     }
-  },[])
+  },[movieId])
 }
 
 export default useSuggestions

@@ -28,10 +28,11 @@ const useTrailer = (movieId,category) => {
         console.log(error);
       }
     };
+    
     if(!youtubeId){
       fetchMovieTrailer();
     }
-  }, []);
+  }, [movieId]);
   return;
 };
 

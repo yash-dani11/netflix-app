@@ -9,8 +9,10 @@ const useCast = (movieId) => {
   useEffect(()=>{
     const fetchCast = async()=>{
         try {
-            console.log(movieId);
             const response = await fetch(`${MOVIES_ENDPOINT}${movieId}${CREDITS_API}?`,TMDB_API_OPTIONS);
+            if(!response.ok){
+              throw new Error("Unable to fetch Movies");
+            }  
             const json = await  response.json();
             const cast = json?.cast?.slice(0,3).map(actor=>actor.name)?.join(", ");
             dispatch(addMovieCast({movieId,value:cast}));
@@ -23,7 +25,7 @@ const useCast = (movieId) => {
         fetchCast();
     }
   }
-,[])
+,[movieId])
 }
 
 export default useCast

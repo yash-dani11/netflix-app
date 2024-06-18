@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 const ListContainer = () => {
   const movies = useSelector(store=>store.movies?.movieList);
-  const allCategories = Object.keys(movies);
+  const allCategories = Object.keys(movies).filter(category=>category!=="suggestion");
   const allMovies = allCategories.map(category=><MovieCarousel movieList = {movies[category]} title={category} key={category}></MovieCarousel>)
   return (
     <div className='pt-72 bg-black md:bg-transparent md:relative md:z-20 md:m-auto md:pt-0'>

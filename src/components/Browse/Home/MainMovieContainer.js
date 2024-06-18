@@ -13,7 +13,7 @@ const MainMovieContainer = () => {
   return (
     <div>
         {mainMovie && <>
-        <VideoDetails title={mainMovie?.original_title} desc={mainMovie?.overview} category={nowPlaying} id={mainMovie.id}></VideoDetails><VideoBackground movieId = {mainMovie?.id}></VideoBackground></>}
+        <VideoDetails details={mainMovie} category={nowPlaying}></VideoDetails><VideoBackground movieId = {mainMovie?.id}></VideoBackground></>}
     </div>
   )
 }
