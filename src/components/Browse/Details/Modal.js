@@ -46,7 +46,7 @@ const Modal = () => {
   <div className='h-full text-white bg-gradient-to-t from-transparent relative bg-opacity-65 z-10 text-center md:text-left sm:-mt-52 pb-20'>
       <div className='px-12'>
       <h1 className='absolute text-2xl md:text-4xl tab:text-5xl font-bold md:w-3/4 -top-24 sm:static'>{details?.original_title}</h1>
-      <div className='absolute -top-20 sm:static mt-4 sm:mt-auto'><Link to={`/play/${category}/${details?.id}`}><button className='bg-white text-black w-20 px-2 md:px-4 py-2 my-4 font-bold rounded-md md:w-32 mr-8 mb-4 hover:bg-opacity-80'> <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="24" viewBox="0 0 24 24" role="img"><path d="M5 2.69127C5 1.93067 5.81547 1.44851 6.48192 1.81506L23.4069 11.1238C24.0977 11.5037 24.0977 12.4963 23.4069 12.8762L6.48192 22.1849C5.81546 22.5515 5 22.0693 5 21.3087V2.69127Z" fill="currentColor"></path></svg> Play</button></Link></div>
+      <div className='absolute -top-20 sm:static mt-4 sm:mt-auto'><Link to={`/play/${category}/${details?.id}`}><button className='bg-white text-black w-20 px-2 md:px-4 py-2 my-4 font-bold rounded-md md:w-32 mr-8 mb-4 hover:bg-opacity-80'> ▶️ Play</button></Link></div>
       <div className='flex flex-col sm:flex-row justify-between mt-28 sm:mt-24 overflow-scroll h-1/2'><div className='text-left w-full sm:w-3/5'>{details?.overview} </div><div className='text-left mt-4 sm:mt-0 sm:text-right sm:w-1/3'><span className='font-bold'>Cast:{" "}</span>{cast}</div></div>
   </div>
   </div>
